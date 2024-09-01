@@ -5,7 +5,7 @@ export const SWAGGER_CONFIG = {
   tag: 'api',
 };
 
-export const SWAGGER_API_ROOT = 'api/docs';
+export const SWAGGER_API_ROOT = 'docs';
 export const SWAGGER_API_NAME = 'API';
 export const SWAGGER_API_DESCRIPTION = 'API Description';
 
