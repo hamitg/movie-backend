@@ -46,7 +46,7 @@ export class UsersService {
     }
 
     const now = new Date();
-    const sessionDate = getDateFromSession(ticket.session);
+    const sessionDate = getDateFromSession(ticket.session.date, ticket.session.timeSlot);
 
     if (sessionDate <= now) {
       throw new SessionHasPassedException();
@@ -116,7 +116,7 @@ export class UsersService {
       throw new SessionNotFoundException();
     }
 
-    const sessionDate = getDateFromSession(session);
+    const sessionDate = getDateFromSession(session.date, session.timeSlot);
     const now = new Date();
 
     if (sessionDate <= now) {

@@ -1,9 +1,8 @@
-import { Session } from '@prisma/client';
 import { TimeSlot, TIME_SLOT_RANGES } from '../constants/time-slots.constants';
 
-export function getDateFromSession(session: Session) {
-  const sessionDate = new Date(session.date);
-  const [startTime] = TIME_SLOT_RANGES[session.timeSlot as TimeSlot].split('-');
+export function getDateFromSession(date: string, timeSlot: string) {
+  const sessionDate = new Date(date);
+  const [startTime] = TIME_SLOT_RANGES[timeSlot as TimeSlot].split('-');
   const [hours, minutes] = startTime.split(':').map(Number);
   sessionDate.setHours(hours, minutes, 0, 0);
   return sessionDate;
