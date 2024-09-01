@@ -1,4 +1,4 @@
-# Foobar
+# MOVIE BOOKING BACKEND
 
 This is a backend app for a movie booking system. Managers can add movies and sessions to the system. Users can then view available sessions and buy tickets.
 
