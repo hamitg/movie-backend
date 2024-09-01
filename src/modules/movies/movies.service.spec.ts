@@ -89,7 +89,7 @@ describe('MoviesService', () => {
         },
       });
       expect(prismaService.session.createMany).toHaveBeenCalledWith({
-        data: createMovieDto.sessions.map((session) => ({
+        data: createMovieDto.sessions?.map((session) => ({
           ...session,
           movieId: createdMovie.id,
         })),

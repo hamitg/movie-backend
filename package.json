@@ -6,7 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "build": "prisma generate && tsc",
+    "build": "prisma generate && tsc --project tsconfig.build.json",
     "postinstall": "prisma migrate deploy",
     "start": "node dist/main.js",
     "prestart": "npm run build",

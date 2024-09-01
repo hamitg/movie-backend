@@ -8,7 +8,7 @@ import {
   Min,
 } from 'class-validator';
 import { ApiPropertyOptional } from '@nestjs/swagger';
-import { ROLES } from 'src/common/constants/roles.constants';
+import { ROLES } from '../../../common/constants/roles.constants';
 
 export class UpdateUserDto {
   @ApiPropertyOptional({

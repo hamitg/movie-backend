@@ -3,7 +3,7 @@ import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { PrismaService } from 'nestjs-prisma';
 import { RegisterDto } from './dto/register.dto';
-import { ROLES } from 'src/common/constants/roles.constants';
+import { ROLES } from '../../common/constants/roles.constants';
 import { LoginDto } from './dto/login.dto';
 
 @Injectable()

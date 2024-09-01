@@ -6,7 +6,5 @@
     "dist",
     "**/*spec.ts",
     "prisma",
-    "prisma",
-    "prisma"
   ]
 }
