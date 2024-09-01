@@ -15,11 +15,6 @@ export class PrismaService implements PrismaOptionsFactory {
           maxWait: 10 * 1000,
           timeout: 20 * 1000,
         },
-        omit: {
-          user: {
-            password: true,
-          },
-        },
       },
     };
   }

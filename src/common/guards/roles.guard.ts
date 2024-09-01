@@ -1,14 +1,13 @@
 import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { JwtService } from '@nestjs/jwt';
-import { extractTokenFromHeader } from '../utils/auth.utils';
 import { convertRoleNameToNumber } from '../constants/roles.constants';
+import { PrismaService } from 'nestjs-prisma';
 
 @Injectable()
 export class RolesGuard implements CanActivate {
   constructor(
     private reflector: Reflector,
-    private jwtService: JwtService,
+    private prismaService: PrismaService,
   ) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
@@ -20,17 +19,19 @@ export class RolesGuard implements CanActivate {
       return true;
     }
     const request = context.switchToHttp().getRequest();
-    const token = extractTokenFromHeader(request);
-    if (!token) {
+    const userId = request.user?.userId;
+    if (!userId) {
       return false;
     }
     try {
-      const payload = await this.jwtService.verifyAsync(token);
+      const user = await this.prismaService.user.findUnique({
+        where: { id: userId },
+      });
       return requiredRoles.some(
-        (role) => convertRoleNameToNumber(role) === payload.role,
+        (role) => convertRoleNameToNumber(role) === user.role,
       );
     } catch (error) {
-      console.log(error);
+      console.error('Error in RolesGuard:', error);
       return false;
     }
   }

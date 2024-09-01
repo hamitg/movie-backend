@@ -2,12 +2,27 @@
 
 This is a backend app for a movie booking system. Managers can add movies and sessions to the system. Users can then view available sessions and buy tickets.
 
-You can register a new user and their role will be __client__. To create a manager, 'create user' endpoint should be used and it can only be used by a manager so a manager info will be given for an initial kickstart.
+You can register a new user and their role will be __client__. To create a manager, 'create user' endpoint should be used and it can only be used by a manager so use this to kickstart the app :
+```json
+
+{
+  "username": "manager",
+  "password": "password123"
+}
+
+```
 After registering a user can login and get a JWT token.
 
 Apart from auth endpoints, all other endpoints are protected and can only be accessed by a user with a valid JWT token.
 
-Some other endpoints can only be used by a manager, which checks for the role of the user. ___0 is the role of a manager and 1 is the role of a customer___
+Some other endpoints can only be used by a manager, which checks for the role of the user : 
+```json
+
+ROLE
+0: MANAGER
+1: CUSTOMER
+
+```
 In addition to that, customers cannot buy tickets for other users and cannot use other users' tickets to watch movies.
 
 
