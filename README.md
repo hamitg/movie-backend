@@ -62,7 +62,7 @@ npm install
 ```
 
 ```bash
-npm run prisma:generate
+npm run build
 ```
 
 ```bash
@@ -76,3 +76,5 @@ npm run test
 ```bash
 npm run test:cov
 ```
+
+Documentation : 'http://localhost:3000/docs'
