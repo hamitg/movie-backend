@@ -40,6 +40,8 @@ In addition to that, customers cannot buy tickets for other users and cannot use
 
 * There cannot be two sessions with the same date(YYYY-mm-dd), timeSlot and room.
 
+* Watch-history only returns the redeemed tickets, so if a ticket was not used to watch the movie, it would not show in watch-history
+
 * Sessions timeSlots can only be certain time slots, which are:
   * 10.00-12.00, 12.00-14.00, ..., 22.00-00.00
      * note: timeSlot data is converted to ENUM with a decorator before processed by the controller and for responses it is converted back again with DTO mapper in the controller to return sensible data.
